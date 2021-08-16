@@ -1,3 +1,3 @@
 # TIL-of-Unemployeds
 
-This can be a diary of how we lived today, what we learned, or why each of us did (not) study.
+This is a collection of what we have learned. Maybe nothing to commit sometimes, but just try to write anything. It can be games, pieces of knowledges, anything.
