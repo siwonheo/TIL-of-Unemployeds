@@ -1,28 +1,28 @@
-What I did today
-* Add sections of multi-party ML computation
-\subsection{Multi-party ML Computation}
-% Define Multi-party ML
-Multi-party Machine Learning Computation(MMLC) is an algorithm or system in which multiple parties are related in the training or inferring process of ML model. That is, multiple parties may devote their data or partition a model to reduce computation loads or harden secureness of the model. Each party may seek to benefit by gathering multiple contributers' efforts, such as their private datasets or computation resources. 
-% Advantage of MMLC
-One of the biggest advantages of MMLC is that it can receive data contributions from users without the model owner's effort to collect the training dataset in advance. In the case in which contributors train the model with their own devices, the load of computation also can be reduced. 
-% Need of secure MMLC
-However, when the model is trained with some private data(e.g. medical data~\cite{ohrimenko2016oblivious}), contributers may want to avoid their data exposed to third-parties or model owners. Therefore, the need of secure MMLC has aroused.
+### What I did today
+## Add sections of multi-party ML computation
+* subsection{Multi-party ML Computation}
+* % Define Multi-party ML
+* Multi-party Machine Learning Computation(MMLC) is an algorithm or system in which multiple parties are related in the training or inferring process of ML model. That is, multiple parties may devote their data or partition a model to reduce computation loads or harden secureness of the model. Each party may seek to benefit by gathering multiple contributers' efforts, such as their private datasets or computation resources. 
+* % Advantage of MMLC
+* One of the biggest advantages of MMLC is that it can receive data contributions from users without the model owner's effort to collect the training dataset in advance. In the case in which contributors train the model with their own devices, the load of computation also can be reduced. 
+* % Need of secure MMLC
+* However, when the model is trained with some private data(e.g. medical data~\cite{ohrimenko2016oblivious}), contributers may want to avoid their data exposed to third-parties or model owners. Therefore, the need of secure MMLC has aroused.
 
-\subsection{Scenarios of Multi-party ML Computation}
-MMLC scenarios can be divided by the asset multiple parties contribute and whether the model is in the training process, or in the inference process. As the environment of computation varies, attack surface also differs from each ML deployment scenario. \autoref{tab:ai_scenario} illustrates the scenarios and corresponding attacker capabilities that fall into the category of multi-party ML computation.
+* \subsection{Scenarios of Multi-party ML Computation}
+* MMLC scenarios can be divided by the asset multiple parties contribute and whether the model is in the training process, or in the inference process. As the environment of computation varies, attack surface also differs from each ML deployment scenario. \autoref{tab:ai_scenario} illustrates the scenarios and corresponding attacker capabilities that fall into the category of multi-party ML computation.
 
-\hdr{Scenario 1: Cloud Private ML inference}
-The first scenario of MMLC is when the model is in the inference process, in which there are multiple data providers and a single model owner. This is a general case of MLaaS(Machine Learning as a Service), where a model owner manage a ML cloud service platform which gets input from users and retrieves some results. In some cases, data owners may query their private data to get inference result. In this scenario, if the ML service is deployed in the untrusted environment, it can expose users' private data to malicious cloud administrators and service providers, or some co-tenants in cloud infrastructure, which are \id{AC-\{1,2,3\}} in ~\autoref{tab:my_label}.
+* \hdr{Scenario 1: Cloud Private ML inference}
+* The first scenario of MMLC is when the model is in the inference process, in which there are multiple data providers and a single model owner. This is a general case of MLaaS(Machine Learning as a Service), where a model owner manage a ML cloud service platform which gets input from users and retrieves some results. In some cases, data owners may query their private data to get inference result. In this scenario, if the ML service is deployed in the untrusted environment, it can expose users' private data to malicious cloud administrators and service providers, or some co-tenants in cloud infrastructure, which are \id{AC-\{1,2,3\}} in ~\autoref{tab:my_label}.
 
-\hdr{Scenario 2: Cloud Multi-Party ML}
-Some ML model owners train their model in the cloud with the training dataset of multiple data owners. Same as Scenario 1, multiple data owners and a single model owner are related to the model, but the model is in the training phase in this case. The model owner aims to benefit from gathering data providers' private dataset, but also has a duty to protect his own model and given training data. With an unprotected environment, the model and training data are exposed in almost every attack vectors; \id{AC-\{1,2,3,4\}} in ~\autoref{tab:my_label}.
+* \hdr{Scenario 2: Cloud Multi-Party ML}
+* Some ML model owners train their model in the cloud with the training dataset of multiple data owners. Same as Scenario 1, multiple data owners and a single model owner are related to the model, but the model is in the training phase in this case. The model owner aims to benefit from gathering data providers' private dataset, but also has a duty to protect his own model and given training data. With an unprotected environment, the model and training data are exposed in almost every attack vectors; \id{AC-\{1,2,3,4\}} in ~\autoref{tab:my_label}.
 
-% Siwon : why is this multi-party computation? quite confusing. 
-\hdr{Scenario 3: On-device ML deployment}
-MLaaS is often deployed to user's device with a pretrained model, and we define this case as an \emph{on-device} ML deployment. The machine learning service application in mobile can represent this case. As a pretrained model is deployed to users' devices, model owners may need to protect their model from getting exposed to the malicious users. Sun et al.~\cite{sun2021mind} also mentions that most of the mobile ML applications adjust their own protection mechanism such as obfuscation or encryption of the model to protect their model, but those methods cannot fundamentally protect model from adversaries. Model and inference data both are in the threat of malicious insider in this scenario.
+* % Siwon : why is this multi-party computation? quite confusing. 
+* \hdr{Scenario 3: On-device ML deployment}
+* MLaaS is often deployed to user's device with a pretrained model, and we define this case as an \emph{on-device} ML deployment. The machine learning service application in mobile can represent this case. As a pretrained model is deployed to users' devices, model owners may need to protect their model from getting exposed to the malicious users. Sun et al.~\cite{sun2021mind} also mentions that most of the mobile ML applications adjust their own protection mechanism such as obfuscation or encryption of the model to protect their model, but those methods cannot fundamentally protect model from adversaries. Model and inference data both are in the threat of malicious insider in this scenario.
 
-\hdr{Scenario 4: Federated Learning}
-Federated learning is a ML technique that multiple edge devices train a model indivisually with their local dataset, and a centralized entity merge their results together to get an optimistic result. As every edge devices devote their own data and model gets transferred recursively, the model and training dataset gets continually 
+* \hdr{Scenario 4: Federated Learning}
+* Federated learning is a ML technique that multiple edge devices train a model indivisually with their local dataset, and a centralized entity merge their results together to get an optimistic result. As every edge devices devote their own data and model gets transferred recursively, the model and training dataset gets continually 
 
 
-Computations that involve multiple parties introduce complications to design and implementation of confidential ML computation. A confidential ML computation scheme for multi-party scenarios must satisfy different security guarantees for the parties that are often mutually distrusting. 
+* Computations that involve multiple parties introduce complications to design and implementation of confidential ML computation. A confidential ML computation scheme for multi-party scenarios must satisfy different security guarantees for the parties that are often mutually distrusting. 
