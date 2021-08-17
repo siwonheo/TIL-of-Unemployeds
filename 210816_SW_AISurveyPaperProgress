@@ -1,5 +1,5 @@
 What I did today
-1. Add sections of multi-party ML computation
+* Add sections of multi-party ML computation
 \subsection{Multi-party ML Computation}
 % Define Multi-party ML
 Multi-party Machine Learning Computation(MMLC) is an algorithm or system in which multiple parties are related in the training or inferring process of ML model. That is, multiple parties may devote their data or partition a model to reduce computation loads or harden secureness of the model. Each party may seek to benefit by gathering multiple contributers' efforts, such as their private datasets or computation resources. 
